@@ -26,3 +26,20 @@ CREATE TABLE Herois_Equipes (
 	FOREIGN KEY ( ID_Heroi) REFERENCES Herois(ID_Heroi),
 	FOREIGN KEY (ID_Equipe) REFERENCES Equipes (ID_Equipe)
 );
+
+-- Criando Tabela de Viloes
+CREATE TABLE Viloes (
+	ID_Vilao INT PRIMARY KEY IDENTITY (1,1),
+	Nome_Vilao VARCHAR(255) NOT NULL,
+	Habilidades VARCHAR (MAX),
+	Ano_Criacao INT
+);
+
+-- Tabela de Herois e Viloes
+CREATE TABLE Herois_Viloes (
+	ID_Heroi INT,
+	id_Vilao INT,
+	PRIMARY KEY (ID_Heroi, ID_Vilao),
+	FOREIGN KEY (ID_Heroi) REFERENCES Herois (ID_Heroi),
+	FOREIGN KEY (ID_Vilao) REFERENCES Viloes (ID_Vilao)
+);
