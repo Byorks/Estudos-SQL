@@ -77,22 +77,31 @@ INSERT INTO Herois (Nome_Heroi, Nome_Real, Ano_Criacao, Planeta_Origem, Habilida
 
 SELECT * FROM Herois
 
+INSERT INTO Herois (Nome_Heroi,Nome_Real,Ano_Criacao,Planeta_Origem,Habilidades) VALUES
+-- Para inserir dados do tipo texto, é preciso ter aspas simples no início e no final de cada inserção
+('Thor', 'Thor Odinson', 1962, 'Asgard','Controle do trovão, Super força, Longividade'),
+('Hulk', 'Bruce Banner', 1962, 'Terra', 'Super Força, Fator de Cura'),
+('Viúva Negra', 'Natasha Romanoff', 1964, 'Terra', 'Espionagem, Combate corpo-a-corpo, Acrobacias'),
+('Gavião Arqueiro', 'Clint Barton', 1964, 'Terra', 'Arqueria, Combate tático');
 
--- Criando Tabela Herois
-CREATE TABLE Herois2 (
-	-- Contagem vai de um em um 1,1, começa 1 e depois passa para 2
-	ID_Heroi INT PRIMARY KEY IDENTITY(1,1),
-	Nome_Heroi VARCHAR(255) NOT NULL,
-	Nome_Real VARCHAR(255),
-	Ano_Criacao INT,
-	Planeta_Origem VARCHAR(255),
-	-- Max utiliza todo o espaço disponível
-	Habilidades VARCHAR (Max)
-);
 
-INSERT INTO Herois2 (Nome_Heroi, Nome_Real, Ano_Criacao, Planeta_Origem, Habilidades) VALUES
-('Homem-Aranha', 'Peter Parker', 1962, 'Terra', 'Super força, Agilidade, Sentido Aranha'),
-('Captão América', 'Steve Rogers', 1941,'Terra', 'Super força, Agilidade, Escudo Vibranium'),
-('Homem de Ferro', 'Tony Stark', 1963, 'Terra', 'Armadura tecnologica, Voo, Inteligencia genial');
+INSERT INTO Equipes (Nome_Equipe, Base_Operacoes) VALUES 
+('Vingadores', 'Torre dos Vingadores'),
+('X-Men', 'Mansão X');
 
-SELECT * FROM Herois2
+INSERT INTO Herois_Equipes (ID_Heroi, ID_Equipe) VALUES
+(1,1), -- Homem Aranha nos Vingadores
+(2,1), -- Capitão América nos Vingadores
+(3,1), -- Homem de Ferro nos Vingadores
+(4,1); -- Thor nos Vingadores
+
+SELECT * FROM Herois_Equipes
+
+INSERT INTO Viloes (Nome_Vilao, Habilidades, Ano_Criacao) VALUES
+('Thanos', 'Super força, Inteligência, Manopla do Infinito', 1973),
+('Caveira', 'Força, Liderança, Cubo Cósmico', 1947),
+('Duende Verde', 'Força, Gênio da química, Equipamento do Duende', 1964),
+('Loki', 'Ilusões, Feitiçaria, Manipulação', 1949);
+
+
+SELECT * FROM Viloes
