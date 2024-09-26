@@ -103,6 +103,7 @@ INSERT INTO Viloes (Nome_Vilao, Habilidades, Ano_Criacao) VALUES
 ('Duende Verde', 'Força, Gênio da química, Equipamento do Duende', 1964),
 ('Loki', 'Ilusões, Feitiçaria, Manipulação', 1949);
 
+
 SELECT * FROM Viloes
 
 INSERT INTO Herois_Viloes (ID_Heroi, ID_Vilao) VALUES
@@ -151,3 +152,5 @@ SELECT * FROM Viloes ORDER BY Ano_Criacao ASC; -- Ordem Crescente - Ordenar uma 
 
 SELECT * FROM Viloes ORDER BY Ano_Criacao DESC; -- Ordem Descrescente - Ordenar uma table apor ordem descendente
 
+
+--
