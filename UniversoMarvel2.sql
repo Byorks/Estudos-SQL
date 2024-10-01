@@ -172,5 +172,25 @@ INSERT INTO Viloes (Nome_Vilao, Ano_Criacao, Habilidades) VALUES
 INSERT INTO Herois_Equipes (ID_Heroi, ID_Equipe) VALUES
 (8,2);
 
-DECLARE @WolverineID INT; 
-SELECT @WolverineID = ID_Heroi FROM Heroix WHERE Nome_Heroi = 'Wolverine'
+-- 1.4. Associando o Wolverine aos X-Men na tabela Herois_Equipes:
+DECLARE @WolverineID INT;
+SELECT @WolverineID = ID_HEROI FROM Herois WHERE Nome_Heroi = 'Wolverine';
+DECLARE @XMenID INT;
+SELECT @XMenID = ID_Equipe FROM Equipes WHERE Nome_Equipe = 'X-Men';
+
+BEGIN
+--1.5. Relacionando o Wolverine ao Magneto na tabela Herois_Viloes (ou Inimigos, caso tenha renomeado a tabela):
+-- Obter os IDs do Wolverine e do Magneto:
+-- Declara a Variável WolverineID
+DECLARE @WolverineID1 INT; 
+-- Seleciona a variável e atribui o valor de ID_Herois que fica na tabela heróis onde o nome do heroi na tabela é igual a Wolverine
+SELECT @WolverineID1 = ID_Heroi FROM Herois WHERE Nome_Heroi = 'Wolverine'
+PRINT @WoverineID;
+
+DECLARE @MagnetoID INT;
+SELECT @MagnetoID = ID_Vilao FROM Viloes WHERE Nome_Vilao = 'Magneto';
+
+-- Inserir a relação na tabela
+INSERT INTO Herois_Viloes (ID_Heroi, ID_Vilao) VALUES (@WolverineID, @MagnetoID);
+
+END
